@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+
+    margin: 0 auto;
+    width: 400px;
     box-shadow: 0px 1px 10px grey;
     border-radius: 10px;
     background-color: #fff;
@@ -62,7 +66,7 @@ const StatsItem = styled.li`
     text-align: center;
     border-top: 1px solid #ebeff4;
     border-right: ${props => props.stats && "1px solid #ebeff4"}
-`
+`;
 
 const Label = styled.span`
     color: #a7b2bc;
@@ -78,7 +82,7 @@ const Quantity = styled.span`
 
 class Profile extends Component {
     render() {
-        const { username, tag, location, avatar, stats } = this.props
+        const { username, tag, location, avatar, stats } = this.props;
         return (
             <Wrapper>
                 <Description>
@@ -109,5 +113,17 @@ class Profile extends Component {
         );
     }
 }
+
+Profile.propTypes = {
+    username : propTypes.string.isRequired,
+    tag : propTypes.string.isRequired, 
+    location : propTypes.string.isRequired,
+    avatar : propTypes.string.isRequired,
+    stats : propTypes.shape({
+            followers: propTypes.number.isRequired,                    
+            views: propTypes.number.isRequired,
+            likes: propTypes.number.isRequired
+        })
+};
 
 export default Profile;
