@@ -4,7 +4,7 @@ import user  from "../../user.json";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-    padding: 13.6vh 0;
+    padding: 94px 0;
     margin: 0 auto;
     width: 400px;
 `
