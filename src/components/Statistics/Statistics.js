@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from "prop-types";
-import "./Statistics.css";
+import styles from "./Statistics.module.css";
 
 class Statistics extends Component {
 
@@ -11,15 +11,15 @@ class Statistics extends Component {
     render() {
         const { stats, title } = this.props;
         return (
-            <section className="statistics">
-                <h2 className="title">{title}</h2>
+            <section className={styles.statistics}>
+                <h2 className={styles.title}>{title}</h2>
           
-            <ul className="stat-list">
+            <ul className={styles.statList}>
               {stats.map((item,i) => {
                 return (
-                    <li key={item.id} className="item" style={{backgroundColor: this.state.colors[i] }}>
-                        <span className="label">{item.label}</span>
-                        <span className="percentage">{item.percentage}</span>
+                    <li key={item.id} className={styles.item} style={{backgroundColor: this.state.colors[i] }}>
+                        <span className={styles.label}>{item.label}</span>
+                        <span className={styles.percentage}>{item.percentage}</span>
                     </li>
                 )
               })}
