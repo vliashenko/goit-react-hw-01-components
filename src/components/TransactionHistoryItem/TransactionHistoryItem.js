@@ -1,18 +1,6 @@
 import React from 'react';
+import useStyles from "./TransactionHistoryItem.styled";
 import PropTypes from "prop-types";
-import { createUseStyles } from 'react-jss';
-
-const useStyles = createUseStyles({
-    item: {
-        border: "1px solid #efefef",
-        textAlign: "center",
-        height: "60px",
-        color: "#adaeb1"
-    },
-    blued: {
-        backgroundColor: "#ecf1f4"
-    }
-})
 
 const TransactionHistoryItem = ({ count, currency, amount, type }) => {
     const classes = useStyles()

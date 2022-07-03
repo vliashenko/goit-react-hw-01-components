@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import FriendListItem from '../FriendListItem/FriendListItem';
-import propTypes from "prop-types";
-import styled from 'styled-components';
+import { FriendList } from './FriendList.styled_components';
+import PropTypes from "prop-types";
 
-const FriendList = styled.ul`
-    margin: 120px auto 0;
-    width: 300px;
-`;
 
 class FriendsList extends Component {
     render() {
@@ -14,12 +10,13 @@ class FriendsList extends Component {
         return (
             <FriendList>
                 {friends.map(item => {
+                    const { id, avatar, isOnline, name } = item;
                     return (
                         <FriendListItem 
-                            key={ item.id } 
-                            avatar={ item.avatar } 
-                            isOnline={ item.isOnline }
-                            name={ item.name }
+                            key={ id } 
+                            avatar={ avatar } 
+                            isOnline={ isOnline }
+                            name={ name }
                         />  
                     )
                 })}
@@ -29,7 +26,11 @@ class FriendsList extends Component {
 };
 
 FriendList.propTypes = {
-    friends: propTypes.array
+    friends: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired
+        }).isRequiredw
+    )
 }
 
 export default FriendsList;
